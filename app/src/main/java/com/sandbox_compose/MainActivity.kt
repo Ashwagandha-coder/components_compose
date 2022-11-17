@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.os.Message
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.sandbox_compose.ui.theme.Sandbox_ComposeTheme
 
@@ -52,10 +54,11 @@ data class MessageCompose(
 
 @Composable
 fun MessageCard(message: MessageCompose) {
+    Column {
 
-    Text(text = message.author)
-    Text(text = message.body)
-    
+        Text(text = message.author, color = Color.Cyan)
+        Text(text = message.body)
+    }
 }
 
 
