@@ -5,10 +5,7 @@ import android.os.Message
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
@@ -74,7 +71,11 @@ fun MessageCard(message: MessageCompose) {
                 .clip(CircleShape)
         )
 
+        Spacer(modifier = Modifier.width(8.dp))
+
         Column {
+
+            Spacer(modifier = Modifier.height(4.dp))
 
             Text(text = message.author, color = Color.Black)
             Text(text = message.body, color = Color.Black)
