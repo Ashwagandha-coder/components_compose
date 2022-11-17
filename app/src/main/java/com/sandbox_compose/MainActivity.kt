@@ -55,7 +55,15 @@ fun MessageCard(message: MessageCompose) {
 
     Text(text = message.author)
     Text(text = message.body)
+    
+}
 
+
+@Preview
+@Composable
+fun PreviewMessageCard() {
+    
+    MessageCard(message = MessageCompose("Dan","doSome - 2"))
     
 }
 
