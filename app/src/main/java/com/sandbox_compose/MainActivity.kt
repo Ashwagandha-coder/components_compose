@@ -8,10 +8,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,8 +34,8 @@ class MainActivity : ComponentActivity() {
 //                    Greeting("World on Compose")
 //                }
 //            }
-            MessageCard(message = com.sandbox_compose.MessageCompose("Dan","doSome"))
-            
+
+            PreviewMessageCard()
         }
     }
 }
@@ -65,7 +68,10 @@ fun MessageCard(message: MessageCompose) {
 
         Image(
             painter = painterResource(id = R.drawable.ic_launcher_background),
-            contentDescription = "Profile people"
+            contentDescription = "Profile people",
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
         )
 
         Column {
