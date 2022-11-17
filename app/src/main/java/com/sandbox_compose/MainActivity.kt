@@ -105,7 +105,7 @@ fun MessageCard(message: MessageCompose) {
             Text(text = message.author, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.subtitle2)
             Spacer(modifier = Modifier.height(4.dp))
 
-            androidx.compose.material.Surface(shape = MaterialTheme.shapes.medium) {
+            androidx.compose.material.Surface(shape = MaterialTheme.shapes.medium, elevation = 1.dp) {
 
                 Text(
                     text = message.body,
