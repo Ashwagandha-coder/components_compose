@@ -109,7 +109,7 @@ fun MessageCard(message: MessageCompose) {
 
                 Text(
                     text = message.body,
-                    color = MaterialTheme.colors.secondaryVariant,
+                    modifier = Modifier.padding(4.dp),
                     style = MaterialTheme.typography.body2
                 )
 
