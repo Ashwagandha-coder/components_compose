@@ -35,10 +35,9 @@ class MainActivity : ComponentActivity() {
             
             Sandbox_ComposeTheme() {
                 androidx.compose.material.Surface(modifier = Modifier.fillMaxSize()) {
-                    
+                    PreviewMessageCard_3()
                 }
             }
-            PreviewMessageCard()
         }
     }
 }
@@ -57,10 +56,25 @@ fun DefaultPreview() {
     }
 }
 
+// lesson 3
+
+
+@Preview
+@Composable
+fun PreviewMessageCard_3() {
+
+    Sandbox_ComposeTheme {
+        androidx.compose.material.Surface {
+
+            MessageCard(message = MessageCompose("Dan", "doSome - 3"))
+        }
+    }
+
+}
+
 
 
 // lesson 2
-
 
 data class MessageCompose(
     val author: String,
