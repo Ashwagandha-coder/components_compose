@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Checkbox
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,7 +32,12 @@ class MainActivity : ComponentActivity() {
 //                    Greeting("World on Compose")
 //                }
 //            }
-
+            
+            Sandbox_ComposeTheme() {
+                androidx.compose.material.Surface(modifier = Modifier.fillMaxSize()) {
+                    
+                }
+            }
             PreviewMessageCard()
         }
     }
