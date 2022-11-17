@@ -95,17 +95,25 @@ fun MessageCard(message: MessageCompose) {
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
-                .border(1.5.dp, MaterialTheme.colors.secondary,CircleShape)
+                .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape)
         )
 
         Spacer(modifier = Modifier.width(8.dp))
 
         Column {
 
+            Text(text = message.author, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.subtitle2)
             Spacer(modifier = Modifier.height(4.dp))
 
-            Text(text = message.author, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.subtitle2)
-            Text(text = message.body, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.body2)
+            androidx.compose.material.Surface(shape = MaterialTheme.shapes.medium) {
+
+                Text(
+                    text = message.body,
+                    color = MaterialTheme.colors.secondaryVariant,
+                    style = MaterialTheme.typography.body2
+                )
+
+            }
         }
     }
 }
