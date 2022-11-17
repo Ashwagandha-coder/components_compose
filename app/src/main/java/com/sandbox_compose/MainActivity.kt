@@ -5,9 +5,11 @@ import android.os.Message
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Checkbox
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -93,6 +95,7 @@ fun MessageCard(message: MessageCompose) {
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
+                .border(1.5.dp, MaterialTheme.colors.secondary,CircleShape)
         )
 
         Spacer(modifier = Modifier.width(8.dp))
@@ -101,8 +104,8 @@ fun MessageCard(message: MessageCompose) {
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            Text(text = message.author, color = Color.Black)
-            Text(text = message.body, color = Color.Black)
+            Text(text = message.author, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.subtitle2)
+            Text(text = message.body, color = MaterialTheme.colors.secondaryVariant, style = MaterialTheme.typography.body2)
         }
     }
 }
