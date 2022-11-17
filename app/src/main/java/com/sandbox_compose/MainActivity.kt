@@ -38,7 +38,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
@@ -51,6 +50,11 @@ fun DefaultPreview() {
         Greeting("Android")
     }
 }
+
+
+
+// lesson 2
+
 
 data class MessageCompose(
     val author: String,
