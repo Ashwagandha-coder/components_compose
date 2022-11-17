@@ -57,7 +57,7 @@ fun MessageCard(message: MessageCompose) {
     Column {
 
         Text(text = message.author, color = Color.Cyan)
-        Text(text = message.body)
+        Text(text = message.body, color = Color.Red)
     }
 }
 
