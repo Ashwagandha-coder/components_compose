@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Checkbox
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -58,3 +59,12 @@ fun testOtherPreview() {
     Greeting(name = "Dot")
     
 }
+
+@Preview
+@Composable
+fun doSomeCheckBoxCompose() {
+
+    Checkbox(checked = true, onCheckedChange = {} )
+
+}
+
