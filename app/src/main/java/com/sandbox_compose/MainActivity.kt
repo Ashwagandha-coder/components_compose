@@ -73,7 +73,7 @@ fun PreviewMessageCard_3() {
     Sandbox_ComposeTheme {
         androidx.compose.material.Surface {
 
-            MessageCard(message = MessageCompose("Dan", "doSome - 3"))
+            MessageCard(message = MessageCompose("Dan", "Hello!, How do you do"))
         }
     }
 
