@@ -1,5 +1,6 @@
 package com.sandbox_compose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Message
 import androidx.activity.ComponentActivity
@@ -61,7 +62,11 @@ fun DefaultPreview() {
 // lesson 3
 
 
-@Preview
+@Preview(name = "Light Mode")
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    name = "Dark Mode")
 @Composable
 fun PreviewMessageCard_3() {
 
