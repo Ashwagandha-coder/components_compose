@@ -41,3 +41,18 @@ fun DefaultPreview() {
         Greeting("Android")
     }
 }
+@Preview
+@Composable
+fun MyFirstPreviewMessage() {
+    
+    Text(text = "Other World")
+    
+}
+
+@Preview
+@Composable
+fun testOtherPreview() {
+    
+    Greeting(name = "Dot")
+    
+}
