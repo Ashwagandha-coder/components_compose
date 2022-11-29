@@ -5,14 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 
 
 class AnimationContent : ComponentActivity() {
@@ -29,15 +27,17 @@ class AnimationContent : ComponentActivity() {
     @Composable
     private fun AnimateContent() {
 
-        var expadable by remember {
-            mutableStateOf(false)
+        var expandable  =  remember {
+            mutableStateOf(true)
         }
 
         Column(modifier = Modifier.fillMaxSize()) {
 
             Text(text = "Hello from Animation Content", color = Color.Black)
 
-            Button(onClick = )
+            Button(onClick = { onClickButton(expandable = expandable) }) {
+                Text(text = "Action")
+            }
 
         }
 
@@ -45,7 +45,12 @@ class AnimationContent : ComponentActivity() {
     }
 
 
-    private fun onClickButton(expandable: MutableState<Boolean>) { expandable.value = !expandable.value }
+    private fun onClickButton(expandable: MutableState<Boolean>) {
+
+        expandable.value = !expandable.value
+
+
+    }
 
 
 
