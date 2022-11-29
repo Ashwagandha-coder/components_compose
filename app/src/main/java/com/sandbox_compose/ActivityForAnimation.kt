@@ -73,6 +73,8 @@ fun animVisib() {
     
     
     Box(modifier = Modifier.height(20.dp)) {
+
+        // Чтобы сделать visibility - INVISIBLE нужно обернуть все в Box {}
     
 
     Column(modifier = Modifier.size(100.dp), verticalArrangement = Arrangement.Center,
