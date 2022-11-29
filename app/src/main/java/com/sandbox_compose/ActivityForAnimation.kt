@@ -1,13 +1,13 @@
 package com.sandbox_compose
 
 import android.os.Bundle
+import android.view.animation.BounceInterpolator
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.*
+import androidx.compose.animation.core.Easing
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 
@@ -65,6 +65,10 @@ private fun PreviewVisib() {
 }
 
 
+private fun doSome() {
+}
+
+
 
 //@Preview(showBackground = true)
 @Composable
@@ -78,7 +82,9 @@ fun animVisib() {
     Column(modifier = Modifier.size(100.dp), verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        AnimatedVisibility(visible = visible.value, enter = fadeIn(tween(700)), exit = fadeOut(tween(700))) {
+        AnimatedVisibility(visible = visible.value,
+            enter = fadeIn(tween(700)) + expandVertically(tween(700, easing = LinearEasing)),
+            exit = fadeOut(tween(700))) {
             Text(text = "Hello World!", color = Color.Black)
 
         }
