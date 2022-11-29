@@ -8,6 +8,7 @@ import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -18,7 +19,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.sandbox_compose.ui.theme.Sandbox_ComposeTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -68,54 +71,36 @@ private fun animCompose() {
 }
 
 
-fun AnimateVisibility() {
-
-    var visible by remember {
-        mutableStateOf(true)
-    }
-    Column (modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-
-        if (visible) {
-            Text(text = "Hello, world!")
-        }
-        Button(onClick = { visible = !visible }) {
-            Text("Click Me")
-        }
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable
-fun anim() {
+fun animVisib() {
 
 
     var visible = remember {
         mutableStateOf(true)
     }
 
-    Column(modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Arrangement.CenterHorizontally) {
+    Column() {
 
+        AnimatedVisibility(visible = visible.value) {
+            Text(text = "Hello World!", color = Color.Black)
 
-        if (visible) {
-            Text(text = "Hello World!")
+            Button(onClick = { visible.value = false }) {
+                Text(text = "Click Me")
+            }
 
         }
-
-        Button(onClick = {
-            visible = false
-        }) {
-            Text(text = "Click Me")
-        }
-
     }
 
+}
 
+@Preview(showBackground = true)
+@Composable
+fun textForTest() {
 
+    Column(modifier = Modifier.fillMaxSize()) {
+        Text(text = "Hello Comp!", color = Color.Black)
 
-
+    }
 }
