@@ -1,4 +1,4 @@
-package com.sandbox_compose
+package com.sandbox_compose.animation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

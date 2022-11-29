@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Sandbox_Compose</string>
     <string name="title_activity_for_animation">ActivityForAnimation</string>
+    <string name="title_activity_animation_content">AnimationContent</string>
 </resources>
