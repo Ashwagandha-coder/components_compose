@@ -5,10 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
+
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -59,20 +58,15 @@ fun DefaultPreview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun animCompose() {
+private fun PreviewVisib() {
 
-    AnimatedVisibility(visible = true) {
-
-        DefaultPreview2()
-
-
-    }
+    animVisib()
 
 }
 
 
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun animVisib() {
 
@@ -81,12 +75,13 @@ fun animVisib() {
         mutableStateOf(true)
     }
 
-    Column() {
+    Column(modifier = Modifier.size(100.dp), verticalArrangement = Arrangement.Center,
+    horizontalAlignment = Alignment.CenterHorizontally) {
 
         AnimatedVisibility(visible = visible.value) {
             Text(text = "Hello World!", color = Color.Black)
 
-            Button(onClick = { visible.value = false }) {
+            Button(onClick = { visible.value = false }, modifier = Modifier.padding(1.dp)) {
                 Text(text = "Click Me")
             }
 
