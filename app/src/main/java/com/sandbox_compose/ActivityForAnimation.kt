@@ -99,6 +99,8 @@ fun animVisib() {
 
             // при нажатиии сначала срабатывает exit потом enter
 
+            // TODO: word: Shrink, Expand, Easing, fade, fadeIn, fadeOut, state in compose k
+
         }
 
 
