@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 
@@ -75,7 +77,7 @@ fun animVisib() {
     Column(modifier = Modifier.size(100.dp), verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        AnimatedVisibility(visible = visible.value) {
+        AnimatedVisibility(visible = visible.value, enter = fadeIn(), exit = fadeOut()) {
             Text(text = "Hello World!", color = Color.Black)
 
 
@@ -87,7 +89,6 @@ fun animVisib() {
     }
 
 }
-
 
 private fun onClickMe(visible: MutableState<Boolean>) { visible.value = !visible.value }
 
