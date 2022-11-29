@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.border
@@ -77,9 +78,8 @@ fun animVisib() {
     Column(modifier = Modifier.size(100.dp), verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        AnimatedVisibility(visible = visible.value, enter = fadeIn(), exit = fadeOut()) {
+        AnimatedVisibility(visible = visible.value, enter = fadeIn(tween(700)), exit = fadeOut(tween(700))) {
             Text(text = "Hello World!", color = Color.Black)
-
 
         }
 
