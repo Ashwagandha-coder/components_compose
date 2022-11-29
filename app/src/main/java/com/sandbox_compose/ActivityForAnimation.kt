@@ -4,11 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.*
-import androidx.compose.animation.core.Easing
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
-
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -73,13 +70,28 @@ fun animVisib() {
     var visible = remember {
         mutableStateOf(true)
     }
+    
+    
+    Box(modifier = Modifier.height(20.dp)) {
+    
 
     Column(modifier = Modifier.size(100.dp), verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally) {
 
-        AnimatedVisibility(visible = visible.value,
-            enter = fadeIn(animationSpec = tween(700)) + expandVertically(tween(700, easing = LinearEasing)),
-            exit = fadeOut(animationSpec = tween(700)) + shrinkVertically(tween(700, easing = LinearEasing))
+        AnimatedVisibility(
+            visible = visible.value,
+            enter = fadeIn(animationSpec = tween(700)) + expandVertically(
+                tween(
+                    700,
+                    easing = LinearEasing
+                )
+            ),
+            exit = fadeOut(animationSpec = tween(700)) + shrinkVertically(
+                tween(
+                    700,
+                    easing = FastOutSlowInEasing
+                )
+            )
         ) {
             Text(text = "Hello World!", color = Color.Black)
 
@@ -87,9 +99,12 @@ fun animVisib() {
 
         }
 
+
         Button(onClick = { onClickMe(visible) }, modifier = Modifier.padding(top = 12.dp)) {
             Text(text = "Click Me")
         }
+
+    }
     }
 
 }
