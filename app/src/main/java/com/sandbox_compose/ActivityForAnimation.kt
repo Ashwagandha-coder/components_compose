@@ -1,14 +1,12 @@
 package com.sandbox_compose
 
 import android.os.Bundle
-import android.view.animation.BounceInterpolator
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.*
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 
 import androidx.compose.material.Button
@@ -22,9 +20,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sandbox_compose.ui.theme.Sandbox_ComposeTheme
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import kotlin.coroutines.coroutineContext
 
 class ActivityForAnimation : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +53,7 @@ fun DefaultPreview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewVisib() {
+private fun PreviewVisibility() {
 
     animVisib()
 
@@ -83,9 +78,12 @@ fun animVisib() {
     horizontalAlignment = Alignment.CenterHorizontally) {
 
         AnimatedVisibility(visible = visible.value,
-            enter = fadeIn(tween(700)) + expandVertically(tween(700, easing = LinearEasing)),
-            exit = fadeOut(tween(700))) {
+            enter = fadeIn(animationSpec = tween(700)) + expandVertically(tween(700, easing = LinearEasing)),
+            exit = fadeOut(animationSpec = tween(700)) + shrinkVertically(tween(700, easing = LinearEasing))
+        ) {
             Text(text = "Hello World!", color = Color.Black)
+
+            // при нажатиии сначала срабатывает exit потом enter
 
         }
 
