@@ -95,44 +95,44 @@ class AnimationContent : ComponentActivity() {
 
 
 
-    @OptIn(ExperimentalAnimationApi::class)
-    @Composable
-    private fun AnimateContentAPI() {
-
-
-        var expandable by remember {
-            mutableStateOf(true)
-        }
-
-        Column(verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
-
-            AnimatedContent(targetState = expandable,
-            transitionSpec = {
-                fadeIn(tween(time)) + fadeOut(tween(time)) +
-                        SizeTransform { initialSize, targetSize ->
-                            if (targetState) {
-
-                                IntSize(targetSize.width,targetSize.height) {
-
-                                    keyframes {
-
-
-
-                                    }
-                                }
-
-                            }
-
-                        }
-            }) {
-            }
-
-
-        }
-
-
-    }
+//    @OptIn(ExperimentalAnimationApi::class)
+//    @Composable
+//    private fun AnimateContentAPI() {
+//
+//
+//        var expandable by remember {
+//            mutableStateOf(true)
+//        }
+//
+//        Column(verticalArrangement = Arrangement.Center,
+//        horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
+//
+//            AnimatedContent(targetState = expandable,
+//            transitionSpec = {
+//                fadeIn(tween(time)) + fadeOut(tween(time)) +
+//                        SizeTransform { initialSize, targetSize ->
+//                            if (targetState) {
+//
+//                                IntSize(targetSize.width,targetSize.height) {
+//
+//                                    keyframes {
+//
+//
+//
+//                                    }
+//                                }
+//
+//                            }
+//
+//                        }
+//            }) {
+//            }
+//
+//
+//        }
+//
+//
+//    }
 
 
 
@@ -192,7 +192,7 @@ class AnimationContent : ComponentActivity() {
     @Composable
     private fun PreviewAnimateCotentAPI() {
 
-        AnimateContentAPI()
+        //AnimateContentAPI()
 
     }
 
