@@ -1,6 +1,7 @@
 package com.sandbox_compose.animation.CrossFade
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -46,7 +47,8 @@ class CrossFade2 {
             Crossfade(targetState = currentColor, animationSpec = tween(3000)) { selectedColor ->
                 Box(modifier = Modifier
                     .fillMaxSize()
-                    .background(selectedColor.color))
+                    .background(selectedColor.color)
+                    .animateContentSize())
             }
         }
     }
