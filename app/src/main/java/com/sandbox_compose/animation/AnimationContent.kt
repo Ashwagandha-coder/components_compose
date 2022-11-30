@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.*
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.BottomDrawerValue
+import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -22,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 
 
@@ -91,24 +95,93 @@ class AnimationContent : ComponentActivity() {
 
 
 
+    @OptIn(ExperimentalAnimationApi::class)
     @Composable
     private fun AnimateContentAPI() {
+
+
+        var expandable by remember {
+            mutableStateOf(true)
+        }
 
         Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
 
-            AnimatedContent(targetState = ) {
+            AnimatedContent(targetState = expandable,
+            transitionSpec = {
+                fadeIn(tween(time)) + fadeOut(tween(time)) +
+                        SizeTransform { initialSize, targetSize ->
+                            if (targetState) {
+
+                                IntSize(targetSize.width,targetSize.height) {
+
+                                    keyframes {
 
 
 
+                                    }
+                                }
+
+                            }
+
+                        }
+            }) {
             }
 
 
         }
 
 
+    }
+
+
+
+
+    @Composable
+    private fun expandFading() {
+
+        fadeIn(tween(time))
+        fadeOut(tween(time - 1000))
 
     }
+    // for test
+
+//    @OptIn(ExperimentalAnimationApi::class)
+//    @Composable
+//    fun AnimatedContentSizeTransform() {
+//        val time = 500
+//        Column {
+//            var expanded by remember {
+//                mutableStateOf(false)
+//            }
+//
+//            AnimatedContent(
+//                targetState = expanded,
+//                transitionSpec = {
+//                    if (targetState) {
+//                        expandFading(time) using expandSizing(time)
+//                    } else {
+//                        shrinkFading(time) using shrinkSizing(time)
+//                    }
+//                }
+//            ) { targetExpanded ->
+//                Image(
+//                    painter = painterResource(
+//                        id = if (targetExpanded)
+//                            R.drawable.img
+//                        else
+//                            R.drawable.ic_launcher_background
+//                    ),
+//                    contentDescription = "",
+//                    modifier = Modifier.background(Color.Yellow)
+//                )
+//            }
+//
+//            Button(onClick = { expanded = !expanded }) {
+//                Text(if (expanded) "Hide" else "Show")
+//            }
+//        }
+//    }
 
 
 
@@ -117,6 +190,10 @@ class AnimationContent : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    private fun PreviewAnimateCotentAPI() {}
+    private fun PreviewAnimateCotentAPI() {
+
+        AnimateContentAPI()
+
+    }
 
 }
