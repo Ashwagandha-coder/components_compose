@@ -1,6 +1,8 @@
 package com.sandbox_compose.animation
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.animateContentSize
@@ -16,15 +18,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 
 
 class AnimationContent : ComponentActivity() {
+
+    private lateinit var tv: TextView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
 
 
         }
+
+
+
+
+
     }
 
 
@@ -40,10 +53,7 @@ class AnimationContent : ComponentActivity() {
 
             Image(
                 painter = painterResource(
-                    id =
-
-                        // недоделал
-                // здесь длжен быть R.drawable.picture
+                    id = com.sandbox_compose.R.drawable.cat
                 ),
                 contentDescription = "",
                 modifier = Modifier
@@ -59,6 +69,46 @@ class AnimationContent : ComponentActivity() {
 
 
     }
+
+    // for test
+
+
+    @Composable
+    fun AnimatedContentSize() {
+        Column {
+            var expanded by remember {
+                mutableStateOf(false)
+            }
+
+//            Image(
+//                painter = painterResource(
+//                    id = if (expanded)
+//                        R.drawable.img
+//                    else
+//                        R.drawable.ic_launcher_background
+//                ),
+//                contentDescription = "",
+//                modifier = Modifier
+//                    .background(Color.Yellow)
+//                    .animateContentSize(tween(1500))
+//            )
+
+            Button(onClick = { expanded = !expanded }) {
+                Text(if (expanded) "Hide" else "Show")
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     private fun chooseResources(flag_1: Boolean) {
