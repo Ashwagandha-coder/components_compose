@@ -11,6 +11,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -18,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.graphics.drawable.DrawableCompat
+import androidx.compose.ui.unit.dp
+
 
 
 class AnimationContent : ComponentActivity() {
@@ -41,7 +42,6 @@ class AnimationContent : ComponentActivity() {
     }
 
 
-
     @Composable
     private fun AnimateContent() {
 
@@ -53,80 +53,26 @@ class AnimationContent : ComponentActivity() {
 
             Image(
                 painter = painterResource(
-                    id = com.sandbox_compose.R.drawable.cat
+                    id = if (expandable.value)
+                        com.sandbox_compose.R.drawable.ic_launcher_background
+                else
+                    com.sandbox_compose.R.drawable.cat
                 ),
-                contentDescription = "",
+                contentDescription = "do Some",
                 modifier = Modifier
                     .background(Color.Yellow)
                     .animateContentSize(tween(1500))
             )
 
-            Button(onClick = { onClickButton(expandable = expandable) }) {
-                Text(text = "Action")
+            Button(onClick = { onClickButton(expandable = expandable) },
+                modifier = Modifier.padding(top = 20.dp)) {
+                Text(text = if (expandable.value) "Hide" else "Show")
             }
 
         }
 
 
     }
-
-    // for test
-
-
-    @Composable
-    fun AnimatedContentSize() {
-        Column {
-            var expanded by remember {
-                mutableStateOf(false)
-            }
-
-//            Image(
-//                painter = painterResource(
-//                    id = if (expanded)
-//                        R.drawable.img
-//                    else
-//                        R.drawable.ic_launcher_background
-//                ),
-//                contentDescription = "",
-//                modifier = Modifier
-//                    .background(Color.Yellow)
-//                    .animateContentSize(tween(1500))
-//            )
-
-            Button(onClick = { expanded = !expanded }) {
-                Text(if (expanded) "Hide" else "Show")
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private fun chooseResources(flag_1: Boolean) {
-
-        var other_flag = flag_1
-
-        other_flag = !other_flag
-
-    }
-
-
-    private fun onClickButton(expandable: MutableState<Boolean>) {
-
-        expandable.value = !expandable.value
-
-
-    }
-
 
 
     @Preview(showBackground = true)
@@ -138,3 +84,6 @@ class AnimationContent : ComponentActivity() {
     }
 
 }
+
+
+private fun onClickButton(expandable: MutableState<Boolean>) { expandable.value = !expandable.value }
