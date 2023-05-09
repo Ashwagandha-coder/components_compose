@@ -134,12 +134,6 @@ fun PreviewMessageCard() {
 
 
 
-
-
-
-
-// lesson 1
-
 @Preview
 @Composable
 fun MyFirstPreviewMessage() {
